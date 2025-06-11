@@ -24,19 +24,76 @@ import { Link } from 'react-router-dom';
  import Pic13 from "../assets/Images/pic13.png";
  import { ChevronDown } from 'lucide-react';
 
-    
+ import Origin from './Origin';
+
+   const properties = [
+    {
+      id: 1,
+     
+      image: Pic,
+      price: 50,
+      title: "Blue Origin Fams",
+      location: "Galle, Sri Lanka",
+      featured: true // Pour la grande carte à gauche
+    },
+    {
+      id: 2,
+      image: Pic5,
+      price: 22,
+      title: "Ocean Land",
+      location: "Trincomalee, Sri Lanka",
+      row: 1 // Première ligne de la colonne droite
+    },
+    {
+      id: 3,
+      image: Pic4,
+      price: 856,
+      title: "Stark House",
+      location: "Dehiwala, Sri Lanka",
+      row: 1
+    },
+    {
+      id: 4,
+      image: Pic2,
+      price: 62,
+      title: "Vinna Vill",
+      location: "Beruwala, Sri Lanka",
+      row: 2 // Deuxième ligne de la colonne droite
+    },
+    {
+      id: 5,
+      image: Pic4,
+      price: 72,
+      title: "Bobox",
+      location: "Kandy, Sri Lanka",
+      row: 2
+    }
+  ];  
  const Home= () => {
-      
+        const featuredProperty = properties.find(p => p.featured);
+  const rightColumnProperties = properties.filter(p => !p.featured);
       const [selectedNumber, setSelectedNumber] = useState(0);
       const [isOpen, setIsOpen] = useState(false);
       const handleSelect = (num) => {
         setSelectedNumber(num);
         setIsOpen(false);
       };
+
+      const [selectedHotel, setSelectedHotel] = useState(null)
      return (
         <main className='w-full h-full bg-[#FFFFFF] mt-[60px] min-h-screen overflow-hidden  px-[30px] md:px-[100px] ' style={{ fontFamily: 'Poppins, sans-serif' }}>
-
-     <section className="md:flex md:py-[100px] py-[50px] relative w-[100%]">
+ {selectedHotel ? (
+        // 👉 Si un hôtel est sélectionné : afficher uniquement Origin
+        <Origin
+          title={selectedHotel.title}
+          image={selectedHotel.image}
+            price={selectedHotel.price}
+          // Tu peux ajouter un bouton retour ici si tu veux revenir à Home
+        />
+      ) : (
+        // 👉 Sinon, afficher tout le contenu de la page Home
+        <>
+          <section className="md:flex md:py-[100px] py-[50px] relative w-[100%]">
         <div className='flex flex-col gap-y-5 w-[50%]'>
                <h1 className='font-bold text-[#152C5B] text-[40px] w-[450px]'>Forget Busy Work,
                Start Next Vacation</h1>
@@ -117,66 +174,63 @@ memorable moments.</p>
      </section>
      <section className='py-[60px] '>
       <p className='text-start text-[#152C5B] text-[20px] font-semibold'>Most Picked</p>
-      <div className='flex gap-x-7 mt-[30px]'>
-        <Link to="/Home" className="block">
-      <div className=' relative cursor-pointer'>
-            <img src={Pic} alt="" />
-        <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
-            <p className='text-[#FFFFFF] text-[16px]'>$ 50 <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
-        </button>
-        <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
-            <h1 className='text-[18px] text-[#FFFFFF]'>Blue Origin Fams</h1>
-            <p className='text-[15px] text-[#FFFFFF]'>Galle, Sri Lanka</p>
+         <div className='flex gap-x-7 mt-[30px]'>
+      {/* Carte principale (gauche) */}
+    
+        <div className='relative cursor-pointer' onClick={() => setSelectedHotel(featuredProperty)}>
+          <img src={featuredProperty.image} alt={featuredProperty.title} />
+          <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
+            <p className='text-[#FFFFFF] text-[16px]'>$ {featuredProperty.price} <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
+          </button>
+          <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
+            <h1 className='text-[18px] text-[#FFFFFF]'>{featuredProperty.title}</h1>
+            <p className='text-[15px] text-[#FFFFFF]'>{featuredProperty.location}</p>
+          </div>
+        </div>
+  
+
+      {/* Colonne droite */}
+      <div className='flex flex-col gap-y-7'>
+        {/* Ligne 1 */}
+        <div className='flex gap-x-7'>
+          {rightColumnProperties
+            .filter(p => p.row === 1)
+            .map(property => (
+              <div key={property.id} className='relative cursor-pointer' onClick={ () => setSelectedHotel(property)}>
+                <img src={property.image} alt={property.title} />
+                <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
+                  <p className='text-[#FFFFFF] text-[16px]'>$ {property.price} <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
+                </button>
+                <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
+                  <h1 className='text-[18px] text-[#FFFFFF]'>{property.title}</h1>
+                  <p className='text-[15px] text-[#FFFFFF]'>{property.location}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        
+
+        {/* Ligne 2 */}
+        <div className='flex gap-x-7'>
+          {rightColumnProperties
+            .filter(p => p.row === 2)
+            .map(property => (
+              <div key={property.id} className='relative cursor-pointer' onClick={ () => setSelectedHotel(property)}>
+                <img src={property.image} alt={property.title} />
+                <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
+                  <p className='text-[#FFFFFF] text-[16px]'>$ {property.price} <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
+                </button>
+                <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
+                  <h1 className='text-[18px] text-[#FFFFFF]'>{property.title}</h1>
+                  <p className='text-[15px] text-[#FFFFFF]'>{property.location}</p>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
-      </Link>
-      <div className=' flex flex-col gap-y-7'>
-      <div className='flex gap-x-7'>
-      <div className='relative cursor-pointer'>
-      <img src={Pic5} alt="" />
-        <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
-            <p className='text-[#FFFFFF] text-[16px]'>$ 22 <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
-        </button>
-        <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
-            <h1 className='text-[18px] text-[#FFFFFF]'>Ocean Land</h1>
-            <p className='text-[15px] text-[#FFFFFF]'>Trincomalee, Sri Lanka</p>
-        </div>
-      </div>
-      <div className='relative cursor-pointer'>
-      <img src={Pic4} alt="" />
-        <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
-            <p className='text-[#FFFFFF] text-[16px]'>$ 856 <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
-        </button>
-        <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
-            <h1 className='text-[18px] text-[#FFFFFF]'>Stark House</h1>
-            <p className='text-[15px] text-[#FFFFFF]'>Dehiwala, Sri Lanka</p>
-        </div>
-      </div>
-      </div>
-      <div className='flex gap-x-7'>
-      <div className='relative cursor-pointer'>
-      <img src={Pic2} alt="" />
-        <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
-            <p className='text-[#FFFFFF] text-[16px]'>$ 62 <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
-        </button>
-        <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
-            <h1 className='text-[18px] text-[#FFFFFF]'>Vinna Vill</h1>
-            <p className='text-[15px] text-[#FFFFFF]'>Beruwala, Sri Lanka</p>
-        </div>
-      </div>
-      <div className='relative cursor-pointer'>
-      <img src={Pic4} alt="" />
-        <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
-            <p className='text-[#FFFFFF] text-[16px]'>$ 72 <span className='text-[#FFFFFF] text-[16px]'> per night</span></p>
-        </button>
-        <div className='flex flex-col text-start absolute bottom-[25px] ml-[30px] gap-y-2'>
-            <h1 className='text-[18px] text-[#FFFFFF]'>Bobox</h1>
-            <p className='text-[15px] text-[#FFFFFF]'>Kandy, Sri Lanka</p>
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
+    </div>
      </section>
      <section className='py-[60px] flex gap-x-7'>
         <div className='flex flex-col gap-y-3 text-start'>
@@ -251,6 +305,11 @@ memorable moments.</p>
             <p className='text-[#B0B0B0] text-[15px]'>Ampara, Sri Lanka</p>
         </div>
      </section>
+
+        </>
+      )}
+    
+    
      </main>
      )
  }

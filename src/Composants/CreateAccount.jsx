@@ -137,7 +137,7 @@ const CreateAccount = () => {
                 type="submit"
                 className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200"
               >
-                Register
+              <a href="/Register" className="">Register</a>
               </button>
 
               <div className="text-center text-sm mt-2">

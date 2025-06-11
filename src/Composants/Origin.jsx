@@ -14,7 +14,7 @@
     import Diningroom from "../assets/Images/diningroom.png";
     import Ac from "../assets/Images/ac.png";
      import Kulkas from "../assets/Images/kulkas.png";
- const Origin= () => {
+ const Origin= ({title, image}) => {
    
      return (
          <main className='w-full h-full bg-[#FFFFFF] mt-[60px] min-h-screen overflow-hidden  px-[30px] md:px-[100px] pb-[30px]' style={{ fontFamily: 'Poppins, sans-serif' }}>
@@ -27,14 +27,14 @@
 
   {/* Titre centré */}
   <div className="flex flex-col text-center">
-    <h1 className="text-[#152C5B] text-[36px] font-semibold">Blue Origin Fams</h1>
+    <h1 className="text-[#152C5B] text-[36px] font-semibold">{title}</h1>
     <p className='text-[#B0B0B0]'>Galle, Sri Lanka</p>
   </div>
  
 </section>
 <section className='flex w-[100%] gap-x-3'>
         <div className='w-[50%] cursor-pointer'>
-            <img src={Rectangle6} alt="" />
+            <img src={image} alt="" />
         </div>
         <div className='w-[50%] flex flex-col gap-y-3 cursor-pointer'>
              <img src={Rectangle7} alt="" className=' h-[215px]'/>
@@ -56,9 +56,9 @@
   </button>
 </div>
 </div>
-<div className='flex flex-wrap gap-x-[57px]  py-[60px] w-full'>
+<div className='md:flex md:items-center md:justify-between py-[60px] w-full'>
   {/* Chambre */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Bedroom1} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>1</h1>
@@ -67,7 +67,7 @@
   </div>
 
   {/* Salon */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Livingroom} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>1</h1>
@@ -76,7 +76,7 @@
   </div>
 
   {/* Salle de bain */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Bedroom} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>1</h1>
@@ -85,7 +85,7 @@
   </div>
 
   {/* Salle à manger */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Diningroom} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>1</h1>
@@ -94,7 +94,7 @@
   </div>
 
   {/* WiFi */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Wifi} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>10</h1>
@@ -103,7 +103,7 @@
   </div>
 
   {/* Climatisation */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Ac} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>7</h1>
@@ -112,7 +112,7 @@
   </div>
 
   {/* Réfrigérateur */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Kulkas} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>1</h1>
@@ -121,7 +121,7 @@
   </div>
 
   {/* Télévision */}
-  <div className='flex flex-col gap-y-2 flex-shrink-0'>
+  <div className='flex flex-col gap-y-2 flex-shrink-0 mb-6 md:mb-0'>
     <img src={Tv} alt="" className='w-10 h-10'/>
     <div className='flex gap-x-2'>
       <h1 className='text-[16px] text-[#152C5B] whitespace-nowrap'>2</h1>
@@ -131,7 +131,7 @@
 </div>
 </section>
  <section className='py-[60px] flex gap-x-7'>
-        <div className='flex flex-col gap-y-3 text-start'>
+        <div className='flex flex-col gap-y-3 text-start cursor-pointer'>
             <div className='relative'>
                 <img src={Rectangle9} alt="" />
                
@@ -139,7 +139,7 @@
             <h1 className='text-[18px] text-[#152C5B]'>Green Lake</h1>
             <p className='text-[#B0B0B0] text-[15px]'>Nature</p>
         </div>
-        <div className='flex flex-col gap-y-3 text-start'>
+        <div className='flex flex-col gap-y-3 text-start cursor-pointer'>
             <div className='relative'>
                 <img src={Rectangle10} alt="" />
                 
@@ -147,7 +147,7 @@
             <h1 className='text-[18px] text-[#152C5B]'>Dog Clubs</h1>
             <p className='text-[#B0B0B0] text-[15px]'>Pool</p>
         </div>
-        <div className='flex flex-col gap-y-3 text-start'>
+        <div className='flex flex-col gap-y-3 text-start cursor-pointer'>
             <div className='relative'>
                 <img src={Rectangle11} alt="" />
                  <button className='absolute top-0 bg-[#3252DF] text-white px-5 py-2 rounded-bl-[16px] rounded-tr-[16px] right-0 w-fit justify-center items-center flex'> 
@@ -157,7 +157,7 @@
             <h1 className='text-[18px] text-[#152C5B]'>Labour and Wait</h1>
             <p className='text-[#B0B0B0] text-[15px]'>Shopping</p>
         </div>
-        <div className='flex flex-col gap-y-3 text-start'>
+        <div className='flex flex-col gap-y-3 text-start cursor-pointer'>
             <div className='relative'>
                 <img src={Rectangle12} alt="" />
                 
@@ -165,7 +165,12 @@
             <h1 className='text-[18px] text-[#152C5B]'>Snorkeling</h1>
             <p className='text-[#B0B0B0] text-[15px]'>Beach</p>
         </div>
+
      </section>
+         <button className="flex gap-x-2 p-3 bg-[#3252DF] text-white rounded-[7px] right-20 absolute mt-[-50px]">
+             
+                <a href="/" className="text-[16px]">Retour à l'accueil</a>
+            </button>
         </main>
      )
  }

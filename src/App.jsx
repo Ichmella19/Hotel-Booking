@@ -8,6 +8,8 @@ import Login from "./Composants/Login";
 import SucessAccount from "./Composants/SucessAccount";
 import SucessLogin from "./Composants/SucessLogin";
 import Booking from "./Composants/Booking";
+import Register from "./Composants/Register";
+import SucessRegister from "./Composants/SucessRegister";
 const App = () => {
     return (
       <Router> 
@@ -22,6 +24,8 @@ const App = () => {
              <Route path="/SucessAccount" element={<SucessAccount />} />
               <Route path="/SucessLogin" element={<SucessLogin />} />
                 <Route path="/Booking" element={<Booking />} />
+                  <Route path="/Register" element={<Register />} />
+                     <Route path="/SucessRegister" element={<SucessRegister />} />
         </Routes>
       </Router>
     );
