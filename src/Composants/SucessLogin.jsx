@@ -20,7 +20,7 @@ const SucessLogin = () => {
 <p className='text-[#3252DF] text-[30px]'>Account Created Successfull</p>
 <p className='text-[#152C5B] text-[24px]'>Please Check Your Email</p>
 <button className="px-10 py-2 bg-[#3252DF] text-white rounded-[7px] w-fit">
-    <p className="text-[16px]">Book Now!</p>
+ <a href="/Booking">Book Now</a>
   </button>
 </div>
       </div>

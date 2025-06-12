@@ -20,7 +20,7 @@ const SucessRegister = () => {
 <p className='text-[#3252DF] text-[30px]'>Once we verified, You can Access Dashboard</p>
 
 <button className="px-10 py-2 bg-[#3252DF] text-white rounded-[7px] w-fit">
-  <Link to="" className="text-[16px]">View Dashboard</Link>
+  <Link to="/UserDashboard" className="text-[16px]">View Dashboard</Link>
   </button>
 </div>
       </div>

@@ -74,10 +74,10 @@ const Booking = () => {
       {/* Boutons */}
       <div className="flex flex-col justify-center mt-8 items-center gap-y-3">
         <button className="bg-blue-600 text-white px-20 py-2 rounded hover:bg-blue-700 w-fit">
-          Book Now
+        <a href="/Payment">Book Now</a>
         </button>
         <button className="bg-gray-100 text-gray-500 px-20 py-2 rounded cursor-not-allowed w-fit">
-          Cancel
+     <a href="/">Cancel</a>
         </button>
       </div>
     </div>

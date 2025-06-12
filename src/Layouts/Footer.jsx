@@ -14,7 +14,7 @@
                 <p className='text-[16px] text-[#152C5B]'>Become hotel Owner</p>
                 <button className="flex gap-x-2 p-3 bg-[#3252DF] text-white rounded-[7px] w-fit">
              
-             <p className="text-[14px]">Register Now</p>
+            <a href="/Register">Register Now</a>
            </button>
             </div>
         </div>

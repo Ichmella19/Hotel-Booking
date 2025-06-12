@@ -52,7 +52,7 @@
 <p className='text-[#152C5B]  text-[20px]'>Start Booking</p>
 <h1 className='text-[36px] text-[#1ABC9C]'>$200 <span className='text-[36px] text-[#B0B0B0]'> per Day</span></h1>
 <button className="px-20 py-2 bg-[#3252DF] text-white rounded-[7px] w-fit">
-    <p className="text-[16px]">Book Now!</p>
+ <a href="/Booking">Book Now</a>
   </button>
 </div>
 </div>
