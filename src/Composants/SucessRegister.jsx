@@ -24,6 +24,9 @@ const SucessRegister = () => {
   </button>
 </div>
       </div>
+      <div>
+        
+      </div>
   </div>
   );
 }

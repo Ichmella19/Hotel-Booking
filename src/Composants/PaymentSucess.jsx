@@ -41,7 +41,8 @@ const PaymentSuccess = () => {
       </p>
 
       {/* Dashboard Link */}
-      <p className="text-xs text-gray-400 mt-8">Go to Dashboard</p>
+      <a href="/UserDashboard" className='text-xs mt-8 text-gray-400 '>Go to Dashboard</a>
+     
     </div>
   );
 };

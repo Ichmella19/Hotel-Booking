@@ -83,32 +83,32 @@ const Header = () => {
 
       {/* Menu mobile avec animation et style violet */}
       <div
-        className={`lg:hidden fixed top-[64px] left-0 w-full z-40 bg-[#5700FF] text-white px-6 py-6 transform transition-transform duration-300 ease-in-out ${
+        className={`lg:hidden fixed top-[64px] left-0 w-full z-40 bg-black text-white px-6 py-6 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <ul className="flex flex-col gap-6 text-[16px] font-medium">
-          <li className="text-[#3252DF]">
+          <li className="">
             <Link to="/" onClick={toggleMenu}>
               Home
             </Link>
           </li>
-          <li className="text-[#152C5B]">
+          <li className="">
             <Link to="/About" onClick={toggleMenu}>
          Hotels
             </Link>
           </li>
-          <li className="text-[#152C5B]">
+          <li className="">
             <Link to="/Portfolio" onClick={toggleMenu}>
               Rooms
             </Link>
           </li>
-          <li className="text-[#152C5B]">
+          <li className="">
             <Link to="/Portfolio" onClick={toggleMenu}>
             About
             </Link>
           </li>
-          <li className="text-[#152C5B]">
+          <li className="">
             <Link to="/Contact" onClick={toggleMenu}>
               Contact Me
             </Link>
@@ -116,7 +116,7 @@ const Header = () => {
           <li>
             <button className="flex gap-x-2 p-3 bg-white text-[#3252DF] rounded-[7px]">
             
-              <p className="text-[16px]">Login</p>
+            <a href="/Login">Login</a>
             </button>
           </li>
         </ul>

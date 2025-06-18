@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
- import Image from "../assets/Images/Image5.png";
+import Image from "../assets/Images/Image5.png";
+
 const CreateAccount = () => {
   const initialValues = {
     name: '',
@@ -26,22 +27,24 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex flex-col lg:flex-row min-h-screen">
       {/* Left Side */}
       <div
-        className="w-1/2 relative bg-cover bg-center"
+        className="w-full lg:w-1/2 relative bg-cover bg-center h-[300px] lg:h-auto"
         style={{
-          backgroundImage:  `url(${Image})`, // remplace avec ton image
+          backgroundImage: `url(${Image})`,
         }}
-      ><div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-60 backdrop-blur-sm rounded-[30px] p-5 shadow-xl border border-white border-opacity-20 w-[600px] h-[550px] flex flex-col justify-center items-center">
-  <h1 className="text-[80px]  drop-shadow-md">
-    <span className="text-[#3252DF]">Lanka</span><span className="text-[#152C5B]">Stay.</span>
-  </h1>
-</div>
+      >
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white bg-opacity-60 backdrop-blur-sm rounded-[20px] p-5 shadow-xl border border-white border-opacity-20 w-[90%] max-w-[500px] h-[200px] lg:w-[600px] lg:h-[550px] flex flex-col justify-center items-center">
+          <h1 className="text-[40px] lg:text-[80px] drop-shadow-md text-center">
+            <span className="text-[#3252DF]">Lanka</span>
+            <span className="text-[#152C5B]">Stay.</span>
+          </h1>
+        </div>
       </div>
 
       {/* Right Side */}
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-4 md:py-0 py-8">
         <div className="w-full max-w-md">
           <h2 className="text-2xl font-semibold text-center mb-6">Create Account</h2>
           <Formik
@@ -52,7 +55,7 @@ const CreateAccount = () => {
             <Form className="space-y-2">
               {/* Name */}
               <div>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name" className="block mb-1">Name</label>
                 <Field
                   type="text"
                   id="name"
@@ -65,7 +68,7 @@ const CreateAccount = () => {
 
               {/* Email */}
               <div>
-                <label htmlFor="email">E mail</label>
+                <label htmlFor="email" className="block mb-1">E-mail</label>
                 <Field
                   type="email"
                   id="email"
@@ -78,7 +81,7 @@ const CreateAccount = () => {
 
               {/* Phone */}
               <div>
-                <label htmlFor="phone">Phone No</label>
+                <label htmlFor="phone" className="block mb-1">Phone No</label>
                 <Field
                   type="text"
                   id="phone"
@@ -91,7 +94,7 @@ const CreateAccount = () => {
 
               {/* Country */}
               <div>
-                <label htmlFor="country">Country</label>
+                <label htmlFor="country" className="block mb-1">Country</label>
                 <Field
                   type="text"
                   id="country"
@@ -104,7 +107,7 @@ const CreateAccount = () => {
 
               {/* Username */}
               <div>
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username" className="block mb-1">Username</label>
                 <Field
                   type="text"
                   id="username"
@@ -117,7 +120,7 @@ const CreateAccount = () => {
 
               {/* Password */}
               <div>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password" className="block mb-1">Password</label>
                 <Field
                   type="password"
                   id="password"
@@ -128,7 +131,7 @@ const CreateAccount = () => {
                 <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
               </div>
 
-              {/* Terms and Button */}
+              {/* Terms and Submit */}
               <div className="text-sm text-gray-500">
                 By signing up you agree to <span className="text-blue-600 underline cursor-pointer">terms and conditions</span> at zoho.
               </div>
@@ -137,7 +140,7 @@ const CreateAccount = () => {
                 type="submit"
                 className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200"
               >
-              <a href="/Register" className="">Register</a>
+                <a href="/Register" className="block w-full text-center">Register</a>
               </button>
 
               <div className="text-center text-sm mt-2">
